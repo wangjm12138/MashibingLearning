@@ -1,6 +1,13 @@
 package com.jackiewang.reflection;
 
 public class abc {
+    public int xxx;
+    public String oo;
+
+    public final String jj = "1234";
+
+    public static double y=0.234;
+    public static final double x=0.234;
 
     public abc(){
         System.out.println("abc");
@@ -18,8 +25,9 @@ public class abc {
 //        System.out.println(a);
 //    }
 
-    private void test(){
+    public static int test(){
         System.out.println("test");
+        return 1;
     }
     private void Pprint(int a, int b, int c){
         System.out.println(a+b+c);
