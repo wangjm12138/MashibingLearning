@@ -1,3 +1,4 @@
+package com.jackiewang;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -50,12 +51,13 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int[] arr={1,21,5,7,10,15};
-        print(arr);
+//        int[] arr={1,21,5,7,10,15};
+//        print(arr);
+        System.out.println(111);
         //selectSort(arr);
         //bubbleSort(arr);
-        insertSort(arr);
-        print(arr);
+//        insertSort(arr);
+//        print(arr);
         //print(arr);
         //bubbleSort(arr);
     }
