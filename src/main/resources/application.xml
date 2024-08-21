@@ -7,7 +7,7 @@
 
 <!--    <bean id="beanF" class="com.jackiewang.spring.BeanF" ></bean>-->
 
-    <context:annotation-config/>
+<!--    <context:annotation-config/>-->
 
     <context:component-scan base-package="com.jackiewang.spring" ></context:component-scan>
 </beans>

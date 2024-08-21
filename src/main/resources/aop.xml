@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- Bean definitions -->
+    <bean id="simpleService" class="com.jackiewang.spring.SimpleService"/>
+    <bean id="loggingAspect" class="com.jackiewang.spring.Logger"/>
+
+    <!-- AOP config -->
+    <aop:config>
+        <aop:aspect id="myAspect" ref="loggingAspect">
+            <aop:pointcut id="actionMethod" expression="execution(* com.jackiewang.spring.SimpleService.performAction(..))"/>
+            <aop:before pointcut-ref="actionMethod" method="beforePrintLog"/>
+            <aop:after pointcut-ref="actionMethod" method="afterPrintLog"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

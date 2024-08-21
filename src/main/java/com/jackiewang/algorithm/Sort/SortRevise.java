@@ -1,4 +1,4 @@
-package com.jackiewang.algorithm;
+package com.jackiewang.algorithm.Sort;
 public class SortRevise {
 
     public static void SelectionSort(int[] arr) {
@@ -63,12 +63,12 @@ public class SortRevise {
         System.out.println();
     }
 
-//    public static void main(String[] args) {
-//        int[] arr= {1,20,3,12,46,23,2,7,15,67,90};
-//        print(arr);
-//        //SelectionSort(arr);
-//        //BubbleSort(arr);
-//        InsertSort(arr);
-//        print(arr);
-//    }
+    public static void main(String[] args) {
+        int[] arr= {1,20,3,12,46,23,2,7,15,67,90};
+        print(arr);
+        //SelectionSort(arr);
+        //BubbleSort(arr);
+        InsertSort(arr);
+        print(arr);
+    }
 }

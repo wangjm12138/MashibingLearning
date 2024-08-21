@@ -12,6 +12,8 @@ public class BeanF {
 
     @Bean
     public BeanG BeanG() {
-        return new BeanG();
+        BeanG g =  new BeanG();
+        System.out.println(g);
+        return g;
     }
 }
