@@ -1,4 +1,4 @@
-package com.jackiewang.spring;
+package com.jackiewang.spring.aop;
 
 // 定义记录日志的类,这个类就封装了我们所有的公共的代码
 public class Logger {

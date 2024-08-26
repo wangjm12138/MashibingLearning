@@ -8,13 +8,13 @@
                            http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- Bean definitions -->
-    <bean id="simpleService" class="com.jackiewang.spring.SimpleService"/>
-    <bean id="loggingAspect" class="com.jackiewang.spring.Logger"/>
+    <bean id="simpleService" class="com.jackiewang.spring.aop.SimpleService"/>
+    <bean id="loggingAspect" class="com.jackiewang.spring.aop.Logger"/>
 
     <!-- AOP config -->
     <aop:config>
         <aop:aspect id="myAspect" ref="loggingAspect">
-            <aop:pointcut id="actionMethod" expression="execution(* com.jackiewang.spring.SimpleService.performAction(..))"/>
+            <aop:pointcut id="actionMethod" expression="execution(* com.jackiewang.spring.aop.SimpleService.performAction(..))"/>
             <aop:before pointcut-ref="actionMethod" method="beforePrintLog"/>
             <aop:after pointcut-ref="actionMethod" method="afterPrintLog"/>
         </aop:aspect>

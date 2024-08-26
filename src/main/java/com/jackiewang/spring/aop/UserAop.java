@@ -1,4 +1,4 @@
-package com.jackiewang.spring;
+package com.jackiewang.spring.aop;
 
 public class UserAop {
 
