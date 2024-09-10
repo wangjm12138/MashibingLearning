@@ -11,7 +11,7 @@ public class BFS {
         Queue<Node> queue = new LinkedList<>();
         queue.add(from);
         HashSet<Node> nodeSet = new HashSet<>();
-        nodeSet.add(from)
+        nodeSet.add(from);
         while (!queue.isEmpty()){
             for (int i=0;i<queue.size();i++){
                 Node node = queue.poll();
