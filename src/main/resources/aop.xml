@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/aop
-                           http://www.springframework.org/schema/aop/spring-aop.xsd">
-
+                           http://www.springframework.org/schema/aop/spring-aop.xsd
+                           http://www.springframework.org/schema/context
+                           https://www.springframework.org/schema/context/spring-context.xsd">
+<!--    <context:annotation-config/>-->
+<!--    <context:component-scan base-package="com.jackiewang.spring.aop" />-->
     <!-- Bean definitions -->
     <bean id="simpleService" class="com.jackiewang.spring.aop.SimpleService"/>
     <bean id="loggingAspect" class="com.jackiewang.spring.aop.Logger"/>
 
+    <aop:aspectj-autoproxy/>
     <!-- AOP config -->
     <aop:config>
         <aop:aspect id="myAspect" ref="loggingAspect">
             <aop:pointcut id="actionMethod" expression="execution(* com.jackiewang.spring.aop.SimpleService.performAction(..))"/>
             <aop:before pointcut-ref="actionMethod" method="beforePrintLog"/>
             <aop:after pointcut-ref="actionMethod" method="afterPrintLog"/>
+<!--            <aop:after-returning method="afterReturingPrintLog" pointcut-ref="actionMethod" returning="result"/>-->
         </aop:aspect>
+<!--        <aop:aspect id="myAspect2" ref="loggingAspect">-->
+<!--            <aop:pointcut id="actionMethod2" expression="execution(* com.jackiewang.spring.aop.SimpleService2.performAction2(..))"/>-->
+<!--            <aop:before pointcut-ref="actionMethod2" method="beforePrintLog"/>-->
+<!--            <aop:after pointcut-ref="actionMethod2" method="afterPrintLog"/>-->
+<!--        </aop:aspect>-->
     </aop:config>
 </beans>

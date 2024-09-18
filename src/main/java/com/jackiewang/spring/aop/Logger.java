@@ -1,6 +1,13 @@
 package com.jackiewang.spring.aop;
 
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.stereotype.Component;
+
 // 定义记录日志的类,这个类就封装了我们所有的公共的代码
+@Aspect
+//@Component
 public class Logger {
 
     //  该方法的作用是在切入点方法执行之前执行
@@ -21,5 +28,10 @@ public class Logger {
     //  该方法的作用是在切入点方法执行之后不管有没有错误，都最终要执行
     public void afterPrintLog(){
         System.out.println("最终通知(afterPrintLog)：业务方法不管有没有异常了，日志打印");
+    }
+
+    @AfterReturning(pointcut = "execution(* com.jackiewang.spring.aop.SimpleService.performAction(..))", returning = "result")
+    public void afterReturingPrintLog(JoinPoint joinPoint, Object result){
+        System.out.println("Afterreturing ....");
     }
 }
