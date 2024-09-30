@@ -9,25 +9,29 @@ import java.util.function.Predicate;
 
 public class SmTest {
 
+//    public void openToRunningAction(ACTION action) {
+////        Object[][] stateMap = new Object[][]{
+////                {STATE.OPEN, STATE.RUNNING, SmTest::openToRunningAction},
+////                {0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
+////        };
+////        ACTION a = SmTest::openToRunningAction
+//        action.apply();
+//        System.out.println(111);
+////        Map<String, ACTION> map = new HashMap<>();
+//    }
+
     public static void Test (){
         System.out.println("test");
     }
 
+
     public static void main(String[] args) {
-        Object[][] stateMap = new Object[][] {
-                {STATE.OPEN, STATE.CLOSE, (ACTION)ActionTake::action1},
-                {STATE.CLOSE, STATE.RUNNING, (ACTION)ActionTake::action2},
-                {STATE.RUNNING, STATE.STOP, (ACTION)ActionTake::action3},
-                {STATE.STOP, STATE.OPEN, (ACTION)ActionTake::action4},
-                {STATE.CLOSE, STATE.OPEN, (ACTION)ActionTake::action5},
+        Object[][] stateMap = new Object[][]{
+                {STATE.OPEN, STATE.RUNNING, (ACTION)SmTest::Test},
         };
 
-        SM sm = new SM(stateMap);
-        sm.setCurrent(STATE.OPEN);
-        sm.setCurrent(STATE.CLOSE);
-        sm.setCurrent(STATE.RUNNING);
-        sm.setCurrent(STATE.STOP);
-        sm.setCurrent(STATE.OPEN);
+        ACTION a = (ACTION) stateMap[0][2];
+        a.apply();
     }
 
 }

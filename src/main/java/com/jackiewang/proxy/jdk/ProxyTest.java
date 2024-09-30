@@ -10,9 +10,10 @@ public class ProxyTest {
         System.getProperties().put("jdk.proxy.ProxyGenerator.saveGeneratedFiles", "true");
         MyProxyInterface myProxyInterfaceImp = new MyProxyInterfaceImp();
         MyProxyHandler myProxyHandler = new MyProxyHandler(myProxyInterfaceImp);
-//
+
+        System.out.println(((MyProxyInterfaceImp)myProxyInterfaceImp).value);
         MyProxyInterface proxy = (MyProxyInterface)Proxy.newProxyInstance(MyProxyInterfaceImp.class.getClassLoader(), new Class[]{MyProxyInterface.class},myProxyHandler);
-//
+
         proxy.doSomething();
 //        Greeting greeting = new GreetingImpl();
 //        Greeting proxy = (Greeting) Proxy.newProxyInstance(

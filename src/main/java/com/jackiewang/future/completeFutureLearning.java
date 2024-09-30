@@ -33,22 +33,22 @@ public class completeFutureLearning {
 //        }
 
         //thenAccept 不需要返回值, thenAcceptAsync 加指定线程池
-//        CompletableFuture<?> objectCompletableFuture = CompletableFuture.supplyAsync(()->{
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-//            System.out.println("first");
-//            System.out.println(Thread.currentThread().getName());
-//            return 1;
-//        }).thenAccept(result -> {
-//            System.out.println("first result :" + result);
-//            System.out.println("second");
-//            System.out.println(Thread.currentThread().getName());
-//        });
-//
-//        objectCompletableFuture.join();
+        CompletableFuture<?> objectCompletableFuture = CompletableFuture.supplyAsync(()->{
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("first");
+            System.out.println(Thread.currentThread().getName());
+            return 1;
+        }).thenAccept(result -> {
+            System.out.println("first result :" + result);
+            System.out.println("second");
+            System.out.println(Thread.currentThread().getName());
+        });
+
+        objectCompletableFuture.join();
 
 
 
