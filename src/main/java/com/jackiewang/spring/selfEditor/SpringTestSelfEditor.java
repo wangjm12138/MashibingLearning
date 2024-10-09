@@ -1,17 +1,16 @@
-package com.jackiewang.spring;
+package com.jackiewang.spring.selfEditor;
 
+import com.jackiewang.spring.BeanG;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class SpringTest {
+public class SpringTestSelfEditor {
 
     public static void main(String[] args) {
-        ApplicationContext ApplicationContext = new ClassPathXmlApplicationContext("./application.xml");
-        //ApplicationContext ApplicationContext = new ClassPathXmlApplicationContext("{file}.xml");
+        ApplicationContext ApplicationContext = new ClassPathXmlApplicationContext("./selfEditor.xml");
 
-        BeanG g= (BeanG)ApplicationContext.getBean("beanG");
-        System.out.println(g.getUrl());
+        SomeClass g= (SomeClass) ApplicationContext.getBean("SomeClass");
+        System.out.println(g.getPerson().getAge());
 
 
 //        ApplicationContext ApplicationContext = new ClassPathXmlApplicationContext("./aop.xml");

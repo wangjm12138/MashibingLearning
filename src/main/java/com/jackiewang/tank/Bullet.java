@@ -3,15 +3,18 @@ package com.jackiewang.tank;
 import java.awt.*;
 
 public class Bullet {
-    private static final int SPEED = 10;
+    private static final int SPEED = 2;
     private int x, y;
     private Direction direction;
     private static int WIDTH=30, HEIGHT=30;
+
+    private TankFrame tf;
 
     public Bullet(int x, int y, Direction direction) {
         this.x = x;
         this.y = y;
         this.direction = direction;
+        //this.tf = tf;
     }
 
     public void paint(Graphics g){

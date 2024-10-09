@@ -50,7 +50,7 @@ public class TransactionConfig {
 
     @Bean
     public BookService bookService() {
-        bookDao();
+//        bookDao();
         return new BookService();
     }
 

@@ -6,10 +6,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.security.UnresolvedPermission;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TankFrame extends Frame {
-    Tank myTank = new Tank(200,200,Direction.DOWN);
-    Bullet bullet = new Bullet(300,300,Direction.DOWN);
+    Tank myTank = new Tank(200,200,Direction.DOWN, this);
+    List<Bullet> bulletList = new ArrayList<>();
+//    Bullet bullet = new Bullet(300,300,Direction.DOWN);
 
     static final int GAME_WIDTH = 800, GAME_HEIGHT = 600;
     public TankFrame() {
@@ -37,13 +40,19 @@ public class TankFrame extends Frame {
         Color c = gOffScreen.getColor();
         gOffScreen.setColor(Color.BLACK);
         gOffScreen.fillRect(0,0,GAME_WIDTH, GAME_HEIGHT);
+        gOffScreen.setColor(c);
+        paint(gOffScreen);
+        g.drawImage(offscreenImage, 0, 0, null);
     }
 
 
     @Override
     public void paint(Graphics g) {
         myTank.paint(g);
-        bullet.paint(g);
+        for (Bullet b: bulletList){
+            b.paint(g);
+        }
+//        bullet.paint(g);
     }
 
 
@@ -97,6 +106,8 @@ public class TankFrame extends Frame {
                 case KeyEvent.VK_DOWN:
                     bd = false;
                     break;
+                case KeyEvent.VK_CONTROL:
+                    myTank.fire();
                 default:
                     break;
             }

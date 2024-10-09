@@ -16,4 +16,19 @@
 <!--        <property name="password" value="${db.password}"/>-->
 <!--    </bean>-->
 <!--    <context:component-scan base-package="com.jackiewang.spring" ></context:component-scan>-->
+<!--    <bean class="com.jackiewang.spring.selfEditor.PersonPropertyEditor"/>-->
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="com.jackiewang.spring.selfEditor.Person">
+                    <value>com.jackiewang.spring.selfEditor.PersonPropertyEditor</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="SomeClass" class="com.jackiewang.spring.selfEditor.SomeClass">
+        <property name="Person" value="John,25" ></property>
+    </bean>
 </beans>
