@@ -1,6 +1,6 @@
 package com.jackiewang.algorithm.Tree;
 
-
+//高度不超过1
 public class IsBalanced {
     static class Info {
         public boolean isBalanced=true;
