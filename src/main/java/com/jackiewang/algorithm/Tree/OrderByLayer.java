@@ -92,8 +92,8 @@ public class OrderByLayer {
         node.right = new Node(20);
         node.left.left = new Node(4);
         node.left.right = new Node(6);
-        node.right.left = new Node(8);
-        node.right.right = new Node(24);
+        node.right.left = new Node(24);
+        node.right.right = new Node(8);
         //System.out.println(printByLayer(node));
         System.out.println(printByLayer2(node));
     }
