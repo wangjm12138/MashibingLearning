@@ -2,7 +2,7 @@ package com.jackiewang.algorithm.Sort;
 
 public class quickSort {
 
-    public static int[] subSort(int[] array, int L, int R){
+    public static int[] NetherlandsFlag(int[] array, int L, int R){
         if(L>R){
             return new int[]{-1, -1};
         }
@@ -31,13 +31,15 @@ public class quickSort {
         if(L >= R){
             return;
         }
-        int[] result = subSort(array, L, R);
-        Print(array);
+        int rand = (int) (L + Math.random()*(R - L + 1));
+        swap(array, rand, R);
+        int[] result = NetherlandsFlag(array, L, R);
+//        Print(array);
         process(array, L, result[0]-1);
         process(array, result[1]+1, R);
     }
 
-    public static void sortV1(int[] array) {
+    public static void quickSortV1(int[] array) {
 
         process(array, 0 , array.length-1);
     }
@@ -59,7 +61,7 @@ public class quickSort {
         int[] array={1,2,3,8,3,5,7,6,3};
         Print(array);
 //        int[] result=subSort(array,0, array.length-1);
-        sortV1(array);
+        quickSortV1(array);
         Print(array);
 //        Print(result);
     }

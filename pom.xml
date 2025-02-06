@@ -44,6 +44,18 @@
             <artifactId>spring-jdbc</artifactId>
             <version>6.1.5</version>
         </dependency>
+        <!-- 数据库 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+            <version>8.0.32</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.4</version>
+        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
@@ -66,7 +78,20 @@
         </dependency>
     </dependencies>
 
-
+<build>
+    <resources>
+        <!-- 默认的 resources 目录 -->
+        <resource>
+            <directory>src/main/resources</directory>
+        </resource>
+        <resource>
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.text</include>
+            </includes>
+        </resource>
+    </resources>
+</build>
 
 <!--    <build>-->
 <!--        <resources>-->

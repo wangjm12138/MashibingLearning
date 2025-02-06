@@ -52,7 +52,7 @@ public class User implements Delayed {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "User.java{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", endTime=" + endTime +
